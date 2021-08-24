@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>page</title>
+</head>
+<body>
+<input id="user" placeholder="Texti mutqagrum">
+<button onclick="publish()">Publish</button> <br><br><br>
+<form>
+ <div>
+  <label for="sel">font-size</label>
+  <input id="fonSize" >
+ </div><br>
+ <div>
+  <label>font-family </label>
+  <select id="sel">
+   <option style="font-family: sans-serif;">sans-serif</option>
+   <option style="font-family: initial;">initial</option>
+   <option style="font-family: inherit;">inherit</option>
+   <option style="font-family: fantasy;">fantasy</option>
+  </select>
+ </div><br>
+ <div>
+  <label>color </label>
+  <input type="color" id="textColor">
+ </div><br>
+ <div>
+  <label>background color</label>
+  <input type="color" id="bgColor">
+ </div><br>
+</form>
+<button onclick="setStyle()">Set Style</button>
+<h1 id="result"></h1>
+
+<script type="text/javascript" src="1.js"></script>
+</body>
+</html>

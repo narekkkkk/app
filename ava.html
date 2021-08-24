@@ -1,0 +1,78 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <title>RANDOM.ORG - True Random Number Service</title>
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" media="all" />
+  <!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="/css/iestyle.css" media="all" />
+  <![endif]-->
+<meta name="application-name" content="RANDOM.ORG" />
+<link rel="apple-touch-icon" sizes="72x72" href="/graphics/touch/app-touch-72x72.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/graphics/touch/app-touch-76x76.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/graphics/touch/app-touch-114x114.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/graphics/touch/app-touch-120x120.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/graphics/touch/app-touch-144x144.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/graphics/touch/app-touch-152x152.png" />
+<link rel="apple-touch-icon" href="/graphics/touch/app-touch-full.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Keywords" content="true random numbers" />
+  <meta name="description" content="RANDOM.ORG offers true random numbers to anyone on the Internet. The randomness comes from atmospheric noise, which for many purposes is better than the pseudo-random number algorithms typically used in computer programs." />
+  <meta name="author" content="Mads Haahr" />
+  <script type="text/javascript" src="/js/random.js"></script>
+  <script type="text/javascript" src="//www.random.org/lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="/js/simpledropdown.jquery.js"></script>
+</head>
+
+<body>
+
+  <div id="search">
+    <form action="https://www.random.org/search" method="get" target="_blank">
+      <div>
+        Search RANDOM.ORG<br />
+        <input type="text" name="q" size="16" />
+        <input type="submit" value="Search" />
+      </div>
+    </form>
+  </div>
+ 
+  <h1><span>True Random Number Service</span></h1>
+  <noscript><p style="background-color:#ffff90;padding: 0em .5em 0em .5em;font-size:.9em"><strong>Warning:</strong> Your browser does not support JavaScript &#8211; RANDOM.ORG may not work as expected</p></noscript>
+
+
+    <script>
+      function cookieBanner(clickedButton) {
+        var consentData = null;
+        if (clickedButton == "selected") {
+          consentData = [true, $('#cookie-banner-preferences').is(':checked'), $('#cookie-banner-statistics').is(':checked')];
+        } else {
+          consentData = [true, true, true];
+        }
+        createCookie('RDOPRIVACY', JSON.stringify(consentData), '/', 365);
+        $('#cookie-banner').fadeOut(800);
+        $.post(
+          "https://www.random.org/privacy/cookie-consent",
+          { consentData : JSON.stringify(consentData), sessionId: readCookie("RDOSESSION") },
+          function(data) {
+            // alert("page content: " + data);
+          }
+        );
+      }
+      /* enable all editable form fields when the page is ready */
+      $(document).ready(function() {
+        $(".rdo-input").attr("disabled", false);
+        $(".rdo-input-disabled-onload").attr("disabled", true);
+      });
+      /* when ready, enable submit buttons - still needed? */
+      $(document).ready(function() { $(".rdo-submit").removeClass("disabled"); });
+      /* if we have a cookie banner, show it */
+      if (document.getElementById("cookie-banner")) {
+        $("#cookie-banner").fadeIn(800);
+      }
+    </script>
+      <!-- no analytics here -->
+
+  </body>
+</html>
